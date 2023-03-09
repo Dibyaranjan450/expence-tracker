@@ -19,6 +19,17 @@ function ExpenseForm(props) {
 
     props.expenseData(data);
     setAddButton(false);
+
+    setTitle('');
+    setAmount();
+    setDate();
+  }
+
+  function validate() {
+    if(!title || !amount || !date) {
+      return true;
+    }
+    else return false;
   }
 
   return(
@@ -36,12 +47,12 @@ function ExpenseForm(props) {
           </div>
           <div className='new-expense__control'>
             <label>Date</label>
-            <input type='date' min='2019-01-01' max='2022-12-31' onChange={(e) => setDate(e.target.value)}/>
+            <input type='date' min='2019-01-01' max='2022-12-31' onChange={(e) => setDate(e.target.value)} />
           </div>
         </div>
         <div className='new-expense__actions'>
           <button onClick={() => setAddButton(false)}>Cancel</button>
-          <button type='submit' onClick={prevent}>Add Expense</button>
+          <button disabled={validate()} type='submit' onClick={prevent}>Add Expense</button>
         </div>
       </div>
       ) : (

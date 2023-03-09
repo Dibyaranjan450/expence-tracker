@@ -80,6 +80,11 @@ function ExpenceItemPage () {
     return i.date.getFullYear().toString() === filterYear;
   })
 
+  function getDeleteItem(item) {
+    expense.splice(expense.findIndex(a => a.title === item.Title), 1);
+    setItems([...expense]);
+  }
+
 
   return(
     <div>
@@ -94,7 +99,7 @@ function ExpenceItemPage () {
           <p className="error_message"> No Expenses Found !</p>
         ) : (
           arr.map((i) =>
-            <ExpenceItem key={i.id} Title={i.title} Amount={i.amount} Date={i.date}/>
+            <ExpenceItem key={i.id} Title={i.title} Amount={i.amount} Date={i.date} deleteItem={getDeleteItem} />
           )
         )}
 
