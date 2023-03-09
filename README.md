@@ -1,6 +1,6 @@
 # Expence Tracker
 
-![Screenshot Img](./Screenshot.png)
+![Screenshot Img](./UpdateScreenshot.png)
 
 ## Usage
 
